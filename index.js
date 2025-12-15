@@ -3,13 +3,16 @@ fetchSubreddit();
 
 async function fetchSubreddit() {
 
+    const proxyEndpoint = "http://localhost:3000/api/subreddit-posts";
+
     try{
 
-        const response = await fetch("https://www.reddit.com/r/Sephora.json");
+        const response = await fetch(proxyEndpoint);
 
-        if(!response.ok)
-        {
-            throw new Error("Could not fetch subreddit resource");
+       if (!response.ok) {
+            // If the proxy returns an error status (like 500)
+            const errorData = await response.json();
+            throw new Error(`Proxy error: ${errorData.error || response.statusText}`);
         }
 
         const data = await response.json();
