@@ -70,12 +70,33 @@ h3 {
 }
 
 .subreddit-buttons {
-    
-    height: 5rem;
-    width: 5rem;
+    height: 10rem;
+    width: 20rem;
     background-color: pink;
     position: absolute;
     top: 5rem;
     right: 1rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
     
+}
+
+.refresh-button {
+    width: 20rem;
+    height: 5rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+}
+
+.delete-button{
+    width: 20rem;
+    height: 5rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+
 }

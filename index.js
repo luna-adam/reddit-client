@@ -53,8 +53,24 @@ function renderSubreddit(array){
 
         const subButtons = document.createElement('div');
         subButtons.className = 'subreddit-buttons';
+
+        const refresh = document.createElement('button');
+        refresh.className = 'refresh-button';
+        refresh.textContent = 'refresh';
+        const deleteButton = document.createElement('button');
+        deleteButton.className = 'delete-button';
+        deleteButton.textContent = 'delete';
+
+        deleteButton.addEventListener('click', () => {
+
+            subredditColumn.remove();
+
+        })
+
+        subButtons.appendChild(refresh);
+        subButtons.appendChild(deleteButton);
         subredditColumn.appendChild(subButtons);
-        console.log('ran');
+        
         
     })
 
