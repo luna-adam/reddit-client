@@ -1,17 +1,21 @@
-const postTitle = document.querySelector('.post-title');
-const postAuthor = document.querySelector('.post-author');
-const postVotes = document.querySelector('.vote-count');
+
 
 const subreddits = document.querySelector('.subreddits');
 
 let data;
 
+
+
 fetchSubreddit();
+    
 
-async function fetchSubreddit() {
 
-    const proxyEndpoint = "http://localhost:3000/api/subreddit-posts";
 
+
+async function fetchSubreddit(subredditName = 'hazbin') {
+
+
+    const proxyEndpoint = `http://localhost:3000/api/subreddit-posts?name=${subredditName}`;
     try{
 
         const response = await fetch(proxyEndpoint);
@@ -22,8 +26,11 @@ async function fetchSubreddit() {
         }
 
         data = await response.json();
+        console.log('ran');
 
         renderSubreddit(data.data.children);
+
+        
     }
 
     catch(error){
@@ -62,8 +69,12 @@ function renderSubreddit(array){
         deleteButton.textContent = 'delete';
 
         deleteButton.addEventListener('click', () => {
-
             subredditColumn.remove();
+        })
+
+        refresh.addEventListener('click', () => {
+
+            fetchSubreddit();
 
         })
 
