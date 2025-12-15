@@ -2,13 +2,10 @@
 fetchSubreddit();
 
 async function fetchSubreddit() {
-    const targetUrl = encodeURIComponent("https://www.reddit.com/r/Sephora.json");
-    // Prepend the CORS proxy URL
-    const proxyUrl = `https://corsproxy.io/?${targetUrl}`;
 
     try{
 
-        const response = await fetch(proxyUrl);
+        const response = await fetch("https://www.reddit.com/r/Sephora.json");
 
         if(!response.ok)
         {
