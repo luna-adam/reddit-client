@@ -27,7 +27,7 @@ async function fetchSubreddit() {
         postVotes.textContent = data.data.children[0].data.ups;
         console.log(data.data.children[0].data.ups);
 
-        renderPosts(data.data.children, 20);
+        renderPosts(data.data.children);
     }
 
     catch(error){
@@ -37,7 +37,10 @@ async function fetchSubreddit() {
 
 
 
-function renderPosts(array, index){
+function renderPosts(array){
+
+    array.forEach(postitem => {
+        
     const post = document.createElement('div');
     post.className = 'post';
 
@@ -48,7 +51,7 @@ function renderPosts(array, index){
     upIcon.className = 'vote-icon';
     const voteCount = document.createElement('p');
     voteCount.className = 'vote-count';
-    voteCount.textContent = array[index].data.ups;
+    voteCount.textContent = postitem.data.ups;
 
     votes.appendChild(upIcon);
     votes.appendChild(voteCount);
@@ -58,15 +61,22 @@ function renderPosts(array, index){
     content.className = 'post-content';
     const postTitle = document.createElement('h3');
     postTitle.className = 'post-title';
-    postTitle.textContent = array[index].data.title;
+    postTitle.textContent = postitem.data.title;
     const postAuthor = document.createElement('p');
     postAuthor.className = 'post-author';
-    postAuthor.textContent = array[index].data.author;
+    postAuthor.textContent = postitem.data.author;
 
     content.appendChild(postTitle);
     content.appendChild(postAuthor);
     post.appendChild(content);
 
     posts.appendChild(post);
+
+
+
+
+    });
+
+
 
 }
