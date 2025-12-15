@@ -1,11 +1,16 @@
 
 
 const subreddits = document.querySelector('.subreddits');
+const addSubreddit = document.querySelector('.add-button');
 
 let data;
 
 
+addSubreddit.addEventListener('click', () => {
 
+
+
+})
 fetchSubreddit();
     
 
@@ -73,7 +78,7 @@ function renderSubreddit(array){
         })
 
         refresh.addEventListener('click', () => {
-
+            subredditColumn.remove();
             fetchSubreddit();
 
         })
