@@ -5,10 +5,8 @@ const fetch = require('node-fetch').default;
 
 const app = express();
 const PORT = 3000;
-//const = 'Sephora';
 
 
-    
 
     app.use(cors()); 
 
