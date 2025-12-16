@@ -7,6 +7,8 @@ const addContainer = document.querySelector('.add-container');
 const subredditInput = document.querySelector(".subreddit-name");
 const submitButton = document.querySelector('.submit-name-bttn');
 
+const subNameError = document.querySelector('.reddit-error');
+
 let data;
 
 
@@ -14,16 +16,22 @@ addSubreddit.addEventListener('click', () => {
 
     addContainer.classList.toggle('active');
 
-    submitButton.addEventListener('click', () => {
-    fetchSubreddit(subredditInput.value);
+})
+
+submitButton.addEventListener('click', async () => {
+    const sucess =  await fetchSubreddit(subredditInput.value);
     subredditInput.value = '';
-    addContainer.classList.remove('active');
+    
+    if(sucess) {
+        subNameError.style.display = 'none';
+        addContainer.classList.remove('active');
+    }
+    else{
+        subNameError.style.display = 'block';
+    }
+    
+    
 })
-
-
-})
-
-
 
 
 async function fetchSubreddit(subredditName) {
@@ -37,18 +45,25 @@ async function fetchSubreddit(subredditName) {
        if (!response.ok) {
             const errorData = await response.json();
             throw new Error(`Proxy error: ${errorData.error || response.statusText}`);
+            
         }
 
         data = await response.json();
-        console.log('ran');
 
+    
         renderSubreddit(data.data.children);
+        return true;
+
+        
+
+        
 
         
     }
 
     catch(error){
         console.error("Failed to fetch subreddit:", error);
+        return false;
     }
 }
 

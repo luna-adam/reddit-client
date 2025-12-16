@@ -76,7 +76,7 @@ h3 {
 }
 
 .subreddit-buttons {
-    visibility: hidden;
+    display: none;
     height: 10rem;
     width: 20rem;
     background-color: #141414;
@@ -84,14 +84,13 @@ h3 {
     top: 5rem;
     right: 1rem;
     border-radius: 2rem;
-    display: flex;
     flex-direction: column;
     box-shadow: 2 2 10px #000000;
     color: white;  
 }
 
 .subreddit-buttons.active {
-    visibility: visible;
+    display: flex;
       
 }
 
@@ -120,7 +119,7 @@ button {
 
 
 .add-container{
-    visibility: hidden;
+    display: none;
     width: 30rem;
     background-color: white;
     position: fixed;
@@ -133,7 +132,7 @@ button {
 }
 
 .add-container.active{
-    visibility: visible;
+    display: block;
  
 }
 
@@ -167,3 +166,9 @@ button {
     text-decoration: none;
     color: inherit;
 }
+
+.reddit-error{
+    display: none;
+    color: #D93900;
+}
+
