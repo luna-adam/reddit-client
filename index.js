@@ -2,22 +2,35 @@
 
 const subreddits = document.querySelector('.subreddits');
 const addSubreddit = document.querySelector('.add-button');
+const addContainer = document.querySelector('.add-container');
+const subredditInput = document.querySelector(".subreddit-name");
+const submitButton = document.querySelector('.submit-name-bttn');
 
 let data;
 
 
 addSubreddit.addEventListener('click', () => {
 
+    addContainer.classList.toggle('active');
+
+    submitButton.addEventListener('click', () => {
+    fetchSubreddit(subredditInput.value);
+    subredditInput.value = '';
+    addContainer.classList.remove('active');
+})
 
 
 })
-fetchSubreddit();
+
+
+
+
     
 
 
 
 
-async function fetchSubreddit(subredditName = 'hazbin') {
+async function fetchSubreddit(subredditName) {
 
 
     const proxyEndpoint = `http://localhost:3000/api/subreddit-posts?name=${subredditName}`;
@@ -78,8 +91,9 @@ function renderSubreddit(array){
         })
 
         refresh.addEventListener('click', () => {
+            const refreshSub = array[0].data.subreddit;
             subredditColumn.remove();
-            fetchSubreddit();
+            fetchSubreddit(refreshSub);
 
         })
 
