@@ -134,11 +134,15 @@ function renderSubreddit(array){
         const postTitle = document.createElement('h3');
         postTitle.className = 'post-title';
         postTitle.textContent = postitem.data.title;
+        const link = document.createElement('a');
+        link.href = postitem.data.url;
+        link.target = "_blank";
         const postAuthor = document.createElement('p');
         postAuthor.className = 'post-author';
         postAuthor.textContent = postitem.data.author;
 
-        content.appendChild(postTitle);
+        link.appendChild(postTitle);
+        content.appendChild(link);
         content.appendChild(postAuthor);
         post.appendChild(content);
 
