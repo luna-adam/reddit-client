@@ -1,6 +1,7 @@
 
 
 const subreddits = document.querySelector('.subreddits');
+
 const addSubreddit = document.querySelector('.add-button');
 const addContainer = document.querySelector('.add-container');
 const subredditInput = document.querySelector(".subreddit-name");
