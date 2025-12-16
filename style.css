@@ -1,6 +1,7 @@
 body {
-    background-color: #1a1a1a;
+    background-color: #1b1b1b;
     color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .main {
@@ -22,6 +23,8 @@ body {
     position: relative;
 }
 
+
+
 .subreddit-header{
     display: flex;
     align-items: center;
@@ -37,7 +40,9 @@ body {
     width: 100%;
     display: flex;
     min-height: 6rem;
-    border: 1px solid azure;
+    background-color: #d93a00c1;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
 
 }
 
@@ -48,7 +53,6 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    border: 1px solid white;
     margin-right: 1rem;
    
 }
@@ -65,43 +69,55 @@ h3 {
 
 .add-button{
     margin-left: 1rem;
-    background-color: red;
+    background-color: #D93900;
     height: fit-content;
     border-radius: 100%;
     cursor: pointer;
 }
 
 .subreddit-buttons {
+    visibility: hidden;
     height: 10rem;
     width: 20rem;
-    background-color: pink;
+    background-color: #141414;
     position: absolute;
     top: 5rem;
     right: 1rem;
     border-radius: 2rem;
     display: flex;
     flex-direction: column;
+    box-shadow: 2 2 10px #000000;
+    color: white;  
+}
+
+.subreddit-buttons.active {
+    visibility: visible;
+      
+}
+
+.subreddit-buttons button{
+    width: 20rem;
+    height: 5rem;
+    background-color: transparent;
+    border: none;
+    color: white; 
+    font-size: 20px;
+    border-radius: 2rem;
+}
+
+button {
+    cursor: pointer;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+
+}
+
+.subreddit-buttons button:hover{
     
-}
-
-.refresh-button {
-    width: 20rem;
-    height: 5rem;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid black;
-    cursor: pointer;
-}
-
-.delete-button{
-    width: 20rem;
-    height: 5rem;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid black;
-    cursor: pointer;
+    background-color: #ffffff29;
 
 }
+
+
 
 .add-container{
     visibility: hidden;
@@ -113,7 +129,7 @@ h3 {
     border-radius: 2rem;
     padding: 2rem;
     color: black;
-    border: 1px solid black;
+    box-shadow: 0 0 10px #000000;
 }
 
 .add-container.active{
@@ -133,13 +149,17 @@ h3 {
 .subreddit-name{
     width: 100%;
     height: 3rem;
+    font-size: 27px;
+    outline-color: #D93900;
 }
 
 .submit-name-bttn{
     height: 4rem;
     width: 100%;
-    background-color: black;
+    border: none;
+    background-color: #D93900;
     color: white;
     border-radius: 1rem;
     font-size: 20px;
 }
+

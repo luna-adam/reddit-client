@@ -26,11 +26,6 @@ addSubreddit.addEventListener('click', () => {
 
 
 
-    
-
-
-
-
 async function fetchSubreddit(subredditName) {
 
 
@@ -76,9 +71,15 @@ function renderSubreddit(array){
     moreIcon.src = '../images/more_vert.png'
 
     moreIcon.addEventListener('click', () => {
-
-        const subButtons = document.createElement('div');
+    let subButtons = subredditColumn.querySelector('.subreddit-buttons');
+        
+        if (subButtons) {
+        subButtons.classList.toggle('active');
+        return; 
+    } else {
+        subButtons = document.createElement('div');
         subButtons.className = 'subreddit-buttons';
+    
 
         const refresh = document.createElement('button');
         refresh.className = 'refresh-button';
@@ -101,7 +102,8 @@ function renderSubreddit(array){
         subButtons.appendChild(refresh);
         subButtons.appendChild(deleteButton);
         subredditColumn.appendChild(subButtons);
-        
+        subButtons.classList.add('active');
+    }
         
     })
 
