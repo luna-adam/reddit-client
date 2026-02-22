@@ -1,50 +1,70 @@
 # reddit-client
 
-This project utilizes a simple Node.js/Express server to act as a **proxy** for the Reddit API. This approach is necessary to bypass browser security policies (specifically Cross-Origin Resource Sharing or CORS) that would prevent the frontend JavaScript from directly fetching data from an external domain.
-
 ## 🚀 Getting Started
 
-To run this application, you must start the backend server and then view the frontend page.
+To run this application, you must have **Node.js** installed. You will need to run the backend server first, followed by the frontend interface.
 
 ### 1. Installation
 
-1.  Clone the repository:
+1. **Clone the repository:**
+```bash
+git clone https://github.com/la-877/reddit-client
 
-    git clone https://github.com/la-877/reddit-client
+```
 
-2.  Navigate to the project directory and install the necessary dependencies:
 
-    cd REDDIT-CLIENT
-    npm install
+2. **Navigate into the project folder:**
+```bash
+cd reddit-client
 
+```
+
+
+3. **Install dependencies:**
+```bash
+npm install
+
+```
+
+
+
+---
 
 ### 2. Running the Application
 
-You must run the following two steps in order.
+You must perform these steps in the following order:
 
-#### Step A: Start the Server (The Proxy)
+#### Step A: Start the Proxy Server (Backend)
 
-Open your terminal in the project root (`REDDIT-CLIENT`) and run the server file:
+Open your terminal in the project root and run:
 
-
+```bash
 node server.js
 
+```
+
+* **Confirmation:** You should see: `✅ Proxy Server is running at http://localhost:3000`
+* **Note:** Keep this terminal window open. If you close it, the frontend will not be able to load any data.
+
+#### Step B: Launch the Website (Frontend)
+
+1. **Open `index.html`:**
+* **Recommended:** If using VS Code, click **"Go Live"** at the bottom right of the editor (or right-click `index.html` and select "Open with Live Server").
+* **Alternative:** Simply double-click `index.html` in your file explorer to open it in your browser.
 
 
-**Confirmation:** You must see the output:
-
-> `✅ Proxy Server is running at http://localhost:3000`
-
-**Keep this terminal window open** for the site to function.
-
-####Step B: Verify the Connection1. Open your web browser.
-2. Navigate to the specific health check endpoint (replace `5500` with whatever port your Live Server/HTML is running on if necessary):
-
-http://localhost:3000/api/subreddit-posts
+2. **Verify the connection:**
+* The website should automatically fetch data through the proxy.
+* If you want to test the data manually, visit: `http://localhost:3000/api/subreddit-posts`. If you see a wall of JSON text there, the server is working perfectly!
 
 
 
+---
 
-3. **Confirmation:** If the server is working, your browser will display a large JSON object containing the latest Reddit posts.
-4. Once verified, open the `index.html` file in your browser to view the client-side display of the data.
+## 🛠️ Built With
+
+* **Frontend:** Vanilla JavaScript, HTML5, CSS3
+* **Backend:** Node.js, Express, CORS, node-fetch
+
+---
 
