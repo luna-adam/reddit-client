@@ -1,10 +1,5 @@
 # reddit-client
 
-
-
-
-# Subreddit Proxy Server
-
 This project utilizes a simple Node.js/Express server to act as a **proxy** for the Reddit API. This approach is necessary to bypass browser security policies (specifically Cross-Origin Resource Sharing or CORS) that would prevent the frontend JavaScript from directly fetching data from an external domain.
 
 ## 🚀 Getting Started
