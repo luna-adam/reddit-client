@@ -4,7 +4,8 @@ const cors = require('cors');
 const fetch = require('node-fetch').default;
 
 const app = express();
-const PORT = 3000;
+app.use(express.static('.'));
+const PORT = process.env.PORT || 3000;
 
 
 
@@ -29,7 +30,7 @@ const PORT = 3000;
             
             if (!redditResponse.ok) {
                return res.status(redditResponse.status).json({ 
-                error: `Failed to fetch /r/${requestedSubreddit}. Status: ${redditResponse.status}` 
+                error: `Failed to fetch /r/${selectedSubreddit}. Status: ${redditResponse.status}` 
             });
         }
 

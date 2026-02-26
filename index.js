@@ -37,7 +37,7 @@ submitButton.addEventListener('click', async () => {
 async function fetchSubreddit(subredditName) {
 
 
-    const proxyEndpoint = `http://localhost:3000/api/subreddit-posts?name=${subredditName}`;
+    const proxyEndpoint = `/api/subreddit-posts?name=${subredditName}`;
     try{
 
         const response = await fetch(proxyEndpoint);
@@ -83,7 +83,7 @@ function renderSubreddit(array){
 
     const moreIcon = document.createElement('img');
     moreIcon.className = 'more-icon';
-    moreIcon.src = '../images/more_vert.png'
+    moreIcon.src = './images/more_vert.png';
 
     moreIcon.addEventListener('click', () => {
     let subButtons = subredditColumn.querySelector('.subreddit-buttons');
@@ -134,7 +134,7 @@ function renderSubreddit(array){
         const votes = document.createElement('div');
         votes.className ='votes';
         const upIcon = document.createElement('img');
-        upIcon.src = '../images/up_vote.png';
+        upIcon.src = './images/up_vote.png';
         upIcon.className = 'vote-icon';
         const voteCount = document.createElement('p');
         voteCount.className = 'vote-count';
